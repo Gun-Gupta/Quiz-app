@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+  "dev": "next dev",
+  "server": "json-server --watch db.json --port 5000",
+  "start:all": "concurrently \"npm run server\" \"npm run dev\""
   },
   "dependencies": {
+    "concurrently": "^9.2.1",
+    "json-server": "^1.0.0-beta.15",
     "next": "16.2.4",
     "react": "19.2.4",
     "react-dom": "19.2.4"

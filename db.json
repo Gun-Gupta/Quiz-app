@@ -1,0 +1,399 @@
+{
+  "quizzes": [
+    {
+      "title": "Python",
+      "category": "Programming",
+      "totalMarks": "50",
+      "questions": [
+        {
+          "questionText": "Which of these are valid Python data types?",
+          "questionType": "Multiple Answer",
+          "options": ["list", "tuple", "dictionary", "arraylist"],
+          "correctAnswer": ["tuple", "list", "dictionary"],
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Which keyword is used to define a function in Python?",
+          "questionType": "Single Answer",
+          "options": ["func", "define", "def", "function"],
+          "correctAnswer": "def",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Python file extension is ____.",
+          "questionType": "Fill in the blanks",
+          "options": [],
+          "correctAnswer": ".py",
+          "questionMarks": "3"
+        },
+        {
+          "questionText": "Python is a case-sensitive language.",
+          "questionType": "True/False",
+          "options": [],
+          "correctAnswer": "True",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Which of these are Python loop keywords?",
+          "questionType": "Multiple Answer",
+          "options": ["for", "while", "repeat", "foreach"],
+          "correctAnswer": ["for", "while"],
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Which function is used to take user input?",
+          "questionType": "Single Answer",
+          "options": ["scan()", "input()", "read()", "get()"],
+          "correctAnswer": "input()",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Lists in Python are mutable.",
+          "questionType": "True/False",
+          "options": [],
+          "correctAnswer": "True",
+          "questionMarks": "4"
+        },
+        {
+          "questionText": "Which operator is used for exponentiation?",
+          "questionType": "Single Answer",
+          "options": ["^", "**", "%", "//"],
+          "correctAnswer": "**",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "The keyword used to exit a loop is ____.",
+          "questionType": "Fill in the blanks",
+          "options": [],
+          "correctAnswer": "break",
+          "questionMarks": "4"
+        },
+        {
+          "questionText": "Which are valid Python frameworks?",
+          "questionType": "Multiple Answer",
+          "options": ["Django", "Flask", "Laravel", "FastAPI"],
+          "correctAnswer": ["Django", "Flask", "FastAPI"],
+          "questionMarks": "5"
+        }
+      ],
+      "id": "python101"
+    },
+
+    {
+      "title": "React Mastery",
+      "category": "React",
+      "totalMarks": "50",
+      "questions": [
+        {
+          "questionText": "React is developed by ____.",
+          "questionType": "Single Answer",
+          "options": ["Google", "Facebook", "Microsoft", "Amazon"],
+          "correctAnswer": "Facebook",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Which hook is used for state management?",
+          "questionType": "Single Answer",
+          "options": ["useRef", "useEffect", "useState", "useMemo"],
+          "correctAnswer": "useState",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "JSX stands for JavaScript XML.",
+          "questionType": "True/False",
+          "options": [],
+          "correctAnswer": "True",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "React components must start with a capital letter.",
+          "questionType": "True/False",
+          "options": [],
+          "correctAnswer": "True",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Which are React hooks?",
+          "questionType": "Multiple Answer",
+          "options": ["useState", "useEffect", "useFetch", "useContext"],
+          "correctAnswer": ["useState", "useEffect", "useContext"],
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "The virtual DOM improves ____.",
+          "questionType": "Fill in the blanks",
+          "options": [],
+          "correctAnswer": "performance",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Which prop is used for unique list rendering?",
+          "questionType": "Single Answer",
+          "options": ["id", "key", "index", "unique"],
+          "correctAnswer": "key",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "React is a backend framework.",
+          "questionType": "True/False",
+          "options": [],
+          "correctAnswer": "False",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Which lifecycle hook equivalent runs after render?",
+          "questionType": "Single Answer",
+          "options": ["useEffect", "useRef", "useReducer", "useMemo"],
+          "correctAnswer": "useEffect",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "React files commonly use the ____ extension.",
+          "questionType": "Fill in the blanks",
+          "options": [],
+          "correctAnswer": ".jsx",
+          "questionMarks": "5"
+        }
+      ],
+      "id": "react101"
+    },
+
+    {
+      "title": "General Knowledge",
+      "category": "GK",
+      "totalMarks": "50",
+      "questions": [
+        {
+          "questionText": "Capital of India?",
+          "questionType": "Single Answer",
+          "options": ["Mumbai", "Delhi", "Kolkata", "Chennai"],
+          "correctAnswer": "Delhi",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Earth is the third planet from the Sun.",
+          "questionType": "True/False",
+          "options": [],
+          "correctAnswer": "True",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Which are continents?",
+          "questionType": "Multiple Answer",
+          "options": ["Asia", "Africa", "Greenland", "Europe"],
+          "correctAnswer": ["Asia", "Africa", "Europe"],
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "The national animal of India is ____.",
+          "questionType": "Fill in the blanks",
+          "options": [],
+          "correctAnswer": "Tiger",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Who invented the telephone?",
+          "questionType": "Single Answer",
+          "options": ["Newton", "Bell", "Tesla", "Edison"],
+          "correctAnswer": "Bell",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Mount Everest is the tallest mountain.",
+          "questionType": "True/False",
+          "options": [],
+          "correctAnswer": "True",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Which are oceans?",
+          "questionType": "Multiple Answer",
+          "options": ["Pacific", "Atlantic", "Arctic", "Sahara"],
+          "correctAnswer": ["Pacific", "Atlantic", "Arctic"],
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "The currency of Japan is ____.",
+          "questionType": "Fill in the blanks",
+          "options": [],
+          "correctAnswer": "Yen",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Which country hosted FIFA 2022?",
+          "questionType": "Single Answer",
+          "options": ["Brazil", "Qatar", "Russia", "France"],
+          "correctAnswer": "Qatar",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "The Sun rises in the east.",
+          "questionType": "True/False",
+          "options": [],
+          "correctAnswer": "True",
+          "questionMarks": "5"
+        }
+      ],
+      "id": "gk101"
+    },
+
+    {
+      "title": "Mathematics Quiz",
+      "category": "Maths",
+      "totalMarks": "50",
+      "questions": [
+        {
+          "questionText": "2 + 2 = ?",
+          "questionType": "Single Answer",
+          "options": ["2", "4", "6", "8"],
+          "correctAnswer": "4",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Square root of 81 is ____.",
+          "questionType": "Fill in the blanks",
+          "options": [],
+          "correctAnswer": "9",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Pi value is approximately 3.14.",
+          "questionType": "True/False",
+          "options": [],
+          "correctAnswer": "True",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Which are prime numbers?",
+          "questionType": "Multiple Answer",
+          "options": ["2", "3", "4", "5"],
+          "correctAnswer": ["2", "3", "5"],
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "10 × 10 = ?",
+          "questionType": "Single Answer",
+          "options": ["10", "20", "100", "1000"],
+          "correctAnswer": "100",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "A triangle has 3 sides.",
+          "questionType": "True/False",
+          "options": [],
+          "correctAnswer": "True",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "5² = ____.",
+          "questionType": "Fill in the blanks",
+          "options": [],
+          "correctAnswer": "25",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Which are even numbers?",
+          "questionType": "Multiple Answer",
+          "options": ["2", "5", "8", "11"],
+          "correctAnswer": ["2", "8"],
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "100 / 10 = ?",
+          "questionType": "Single Answer",
+          "options": ["5", "10", "20", "50"],
+          "correctAnswer": "10",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "0 is a natural number.",
+          "questionType": "True/False",
+          "options": [],
+          "correctAnswer": "False",
+          "questionMarks": "5"
+        }
+      ],
+      "id": "math101"
+    },
+
+    {
+      "title": "Science Quiz",
+      "category": "Science",
+      "totalMarks": "50",
+      "questions": [
+        {
+          "questionText": "Water formula is ____.",
+          "questionType": "Fill in the blanks",
+          "options": [],
+          "correctAnswer": "H2O",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "The Earth revolves around the Sun.",
+          "questionType": "True/False",
+          "options": [],
+          "correctAnswer": "True",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Which are planets?",
+          "questionType": "Multiple Answer",
+          "options": ["Mars", "Venus", "Moon", "Jupiter"],
+          "correctAnswer": ["Mars", "Venus", "Jupiter"],
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Humans breathe ____ gas.",
+          "questionType": "Fill in the blanks",
+          "options": [],
+          "correctAnswer": "Oxygen",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Which organ pumps blood?",
+          "questionType": "Single Answer",
+          "options": ["Brain", "Heart", "Liver", "Lungs"],
+          "correctAnswer": "Heart",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Plants make food using photosynthesis.",
+          "questionType": "True/False",
+          "options": [],
+          "correctAnswer": "True",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Which are states of matter?",
+          "questionType": "Multiple Answer",
+          "options": ["Solid", "Liquid", "Gas", "Energy"],
+          "correctAnswer": ["Solid", "Liquid", "Gas"],
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "The human body has ____ bones.",
+          "questionType": "Fill in the blanks",
+          "options": [],
+          "correctAnswer": "206",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Which vitamin is produced from sunlight?",
+          "questionType": "Single Answer",
+          "options": ["Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D"],
+          "correctAnswer": "Vitamin D",
+          "questionMarks": "5"
+        },
+        {
+          "questionText": "Sound travels faster than light.",
+          "questionType": "True/False",
+          "options": [],
+          "correctAnswer": "False",
+          "questionMarks": "5"
+        }
+      ],
+      "id": "science101"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

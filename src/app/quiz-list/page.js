@@ -5,6 +5,10 @@ import { useEffect, useState } from "react";
 
 export default function QuizListPage() {
   const [quizzes, setQuizzes] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortBy, setSortBy] = useState("default");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
   const fetchQuizzes = async () => {
     try {
@@ -34,6 +38,30 @@ export default function QuizListPage() {
     fetchQuizzes();
   };
 
+  // Reset page to 1 when search or sort changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, sortBy]);
+
+  const filteredQuizzes = quizzes.filter((quiz) =>
+    quiz.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    quiz.category.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const sortedQuizzes = [...filteredQuizzes].sort((a, b) => {
+    if (sortBy === "title-asc") return a.title.localeCompare(b.title);
+    if (sortBy === "title-desc") return b.title.localeCompare(a.title);
+    if (sortBy === "marks-asc") return a.totalMarks - b.totalMarks;
+    if (sortBy === "marks-desc") return b.totalMarks - a.totalMarks;
+    return 0; // default
+  });
+
+  const totalPages = Math.ceil(sortedQuizzes.length / itemsPerPage) || 1;
+  const paginatedQuizzes = sortedQuizzes.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
   return (
     <main className="min-h-screen bg-[#07090d] px-6 py-12 text-white">
       <section className="mx-auto max-w-7xl">
@@ -52,6 +80,29 @@ export default function QuizListPage() {
           </p>
         </div>
 
+        {/* Controls Section: Search & Sort */}
+        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <input
+            type="text"
+            placeholder="Search quizzes by title or category..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full rounded-xl border border-white/10 bg-[#101018] px-5 py-3 text-white placeholder-indigo-200/40 focus:border-lime-300/50 focus:outline-none sm:max-w-md"
+          />
+
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+            className="w-full appearance-none rounded-xl border border-white/10 bg-[#101018] px-5 py-3 text-white focus:border-lime-300/50 focus:outline-none sm:max-w-[200px]"
+          >
+            <option value="default">Sort By...</option>
+            <option value="title-asc">Title (A-Z)</option>
+            <option value="title-desc">Title (Z-A)</option>
+            <option value="marks-asc">Marks (Low to High)</option>
+            <option value="marks-desc">Marks (High to Low)</option>
+          </select>
+        </div>
+
         {quizzes.length === 0 ? (
           <div className="rounded-[2rem] border border-white/10 bg-[#101018] p-16 text-center">
             <h2 className="text-3xl font-black text-white">
@@ -62,58 +113,93 @@ export default function QuizListPage() {
               Create a new quiz first.
             </p>
           </div>
+        ) : paginatedQuizzes.length === 0 ? (
+          <div className="rounded-[2rem] border border-white/10 bg-[#101018] p-16 text-center">
+            <h2 className="text-3xl font-black text-white">
+              No results match your search 😭
+            </h2>
+            <p className="mt-3 text-indigo-200/60">
+              Try adjusting your search or filters.
+            </p>
+          </div>
         ) : (
-          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-            {quizzes.map((quiz) => (
-              <div
-                key={quiz.id}
-                className="group rounded-[2rem] border border-white/10 bg-[#101018] p-7 transition duration-300 hover:-translate-y-2 hover:border-lime-300/40"
-              >
-                <div className="mb-6 flex items-center justify-between">
-                  <span className="rounded-full bg-lime-300/10 px-4 py-2 text-sm font-bold uppercase tracking-widest text-lime-300">
-                    {quiz.category}
-                  </span>
-
-                  <span className="text-sm font-bold text-indigo-200/60">
-                    {quiz.questions.length} Questions
-                  </span>
-                </div>
-
-                <h2 className="text-3xl font-black leading-tight">
-                  {quiz.title}
-                </h2>
-
-                <div className="mt-8 space-y-3">
-                  <div className="flex items-center justify-between rounded-xl border border-white/10 bg-[#1b1b25] px-4 py-3">
-                    <span className="text-indigo-200/60">
-                      Total Marks
+          <>
+            <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+              {paginatedQuizzes.map((quiz) => (
+                <div
+                  key={quiz.id}
+                  className="group rounded-[2rem] border border-white/10 bg-[#101018] p-7 transition duration-300 hover:-translate-y-2 hover:border-lime-300/40"
+                >
+                  <div className="mb-6 flex items-center justify-between">
+                    <span className="rounded-full bg-lime-300/10 px-4 py-2 text-sm font-bold uppercase tracking-widest text-lime-300">
+                      {quiz.category}
                     </span>
 
-                    <span className="text-xl font-black text-lime-300">
-                      {quiz.totalMarks}
+                    <span className="text-sm font-bold text-indigo-200/60">
+                      {quiz.questions.length} Questions
                     </span>
                   </div>
 
-                </div>
+                  <h2 className="text-3xl font-black leading-tight">
+                    {quiz.title}
+                  </h2>
 
-                <div className="mt-8 grid grid-cols-2 gap-4">
-                  <Link
-                    href={`/quiz/${quiz.id}`}
-                    className="flex items-center justify-center rounded-xl bg-lime-300 px-5 py-4 text-lg font-black text-black transition hover:scale-[1.02]"
-                  >
-                    Attempt
-                  </Link>
+                  <div className="mt-8 space-y-3">
+                    <div className="flex items-center justify-between rounded-xl border border-white/10 bg-[#1b1b25] px-4 py-3">
+                      <span className="text-indigo-200/60">
+                        Total Marks
+                      </span>
 
-                  <button
-                    onClick={() => deleteQuiz(quiz.id)}
-                    className="rounded-xl border border-red-500/30 bg-red-500/10 px-5 py-4 text-lg font-black text-red-400 transition hover:bg-red-500 hover:text-white"
-                  >
-                    Delete
-                  </button>
+                      <span className="text-xl font-black text-lime-300">
+                        {quiz.totalMarks}
+                      </span>
+                    </div>
+
+                  </div>
+
+                  <div className="mt-8 grid grid-cols-2 gap-4">
+                    <Link
+                      href={`/quiz/${quiz.id}`}
+                      className="flex items-center justify-center rounded-xl bg-lime-300 px-5 py-4 text-lg font-black text-black transition hover:scale-[1.02]"
+                    >
+                      Attempt
+                    </Link>
+
+                    <button
+                      onClick={() => deleteQuiz(quiz.id)}
+                      className="rounded-xl border border-red-500/30 bg-red-500/10 px-5 py-4 text-lg font-black text-red-400 transition hover:bg-red-500 hover:text-white"
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
+              ))}
+            </div>
+
+            {/* Pagination Controls */}
+            {totalPages > 1 && (
+              <div className="mt-12 flex items-center justify-center gap-4">
+                <button
+                  onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                  disabled={currentPage === 1}
+                  className="rounded-xl border border-white/10 bg-[#101018] px-5 py-3 text-sm font-bold text-white transition hover:border-lime-300/40 disabled:opacity-50 disabled:hover:border-white/10 cursor-pointer"
+                >
+                  Previous
+                </button>
+                <span className="text-indigo-200/60">
+                  Page <span className="text-white font-bold">{currentPage}</span> of{" "}
+                  <span className="text-white font-bold">{totalPages}</span>
+                </span>
+                <button
+                  onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                  disabled={currentPage === totalPages}
+                  className="rounded-xl border border-white/10 bg-[#101018] px-5 py-3 text-sm font-bold text-white transition hover:border-lime-300/40 disabled:opacity-50 disabled:hover:border-white/10 cursor-pointer"
+                >
+                  Next
+                </button>
               </div>
-            ))}
-          </div>
+            )}
+          </>
         )}
       </section>
     </main>
